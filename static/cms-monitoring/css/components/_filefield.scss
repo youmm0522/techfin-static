@@ -1,0 +1,50 @@
+.filefield-root {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  font-size: 14px;
+
+  input[type='file'] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+
+.filefield-box {
+  @include formStyle;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background-color: #fff !important;
+  font-size: 13px;
+}
+
+.filelist-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--c-border2);
+  font-size: 13px;
+  color: var(--c-gray1);
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+.filefield-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  .filefield-root {
+    width: auto
+  }
+}

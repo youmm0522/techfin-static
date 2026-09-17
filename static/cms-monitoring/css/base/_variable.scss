@@ -1,0 +1,43 @@
+:root {
+  // color
+  --c-primary: #3b5dfb;
+  --c-primary-bg: #F0F4FF;
+  --c-black: #212126;
+  --c-gray1: #4f4f55;
+  --c-gray2: #75757a;
+  --c-gray3: #8b8b8f;
+  --c-gray4: #f9f9f9;
+
+  // state-color
+  --c-disabled: #bebebe;
+  --c-error: #f26b7a;
+  --c-success: #35a785;
+  --c-warn: #ff9900;
+  --c-fail: #718ebf;
+  --c-cta: #5a7299;
+  --c-active: #5a71fe;
+
+  // other color
+  --c-border: #d4d4d9;
+  --c-border2: #e8e8eb;
+  --c-bg: #f9f9f9;
+
+  // size
+  --w-sidebar: 368px;
+  --w-fold: 48px;
+  --w-gap: 12px;
+  --w-space: 30px;
+  --h-header: 72px;
+  --form-h: 40px;
+
+  --min-width: 1160px;
+  --max-width: 1440px;
+
+  .console-root:has(.table-xscroll) {
+    --min-width: 1240px;
+  }
+
+  // etc
+  --ease: cubic-bezier(0, 0.75, 0, 1);
+  --gra: linear-gradient(90deg, #0046ff, #8e48ff);
+}

@@ -1,0 +1,123 @@
+.combobox-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.ac--focus {
+    .combobox-dropdown {
+      max-height: 0;
+      transition: max-height 0.2s;
+    }
+
+    &:has(button:focus),
+    &.ac--active {
+      .combobox-dropdown {
+        max-height: 200px;
+        overflow-y: auto;
+        box-shadow: 0px 4px 16px 0px #0000000f;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &.s--sm {
+    .combobox-btn {
+      height: 32px;
+      font-size: 13px;
+    }
+  }
+}
+
+.combobox-group {
+  display: flex;
+  gap: 8px;
+
+  .combobox-root {
+    flex: 1;
+  }
+}
+
+.combobox-btn {
+  @include formBox;
+  min-width: 100px;
+  padding-right: 50px;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    margin-top: -2px;
+    border-style: solid;
+    border-width: 6px;
+    border-color: currentColor transparent transparent;
+    border-radius: 2px;
+    color: var(--c-gray1);
+  }
+
+  &:focus {
+    border-color: var(--c-primary);
+  }
+}
+
+.combobox-dropdown {
+  z-index: 99;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 3px;
+  color: var(--c-black);
+  overflow: hidden;
+}
+
+.combobox-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--c-border2);
+  border-radius: 6px;
+  background-color: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #e4e4e4;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+
+    &.ac--active,
+    &:hover:not(.ac--active, :has(button:disabled)) {
+      background-color: var(--c-bg);
+    }
+    & > * {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 24px;
+      text-align: left;
+      padding: 5px 12px;
+      color: inherit;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

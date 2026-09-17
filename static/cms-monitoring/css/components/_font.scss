@@ -1,0 +1,88 @@
+.font-h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.font-h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.font-h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.font-h4 {
+  display: inline-flex;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-h6 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-h7 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-h8 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-h9 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-h10 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-black);
+}
+
+.font-lg {
+  font-size: 16px;
+  font-weight: 500;
+}
+.font-md {
+  font-size: 14px;
+  font-weight: 500;
+}
+.font-nm {
+  font-size: 13px;
+  font-weight: 500;
+}
+.font-sm {
+  font-size: 12px;
+  font-weight: 500;
+}
+.font-xs {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.text-desc {
+  color: var(--c-gray1);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 0;
+}

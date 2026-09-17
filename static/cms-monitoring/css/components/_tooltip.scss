@@ -1,0 +1,151 @@
+.tooltip-root {
+  position: relative;
+  display: inline-block;
+
+  &.ac-hover {
+    &:hover {
+      .tooltip-popper {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .tooltip-popper {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s;
+    }
+  }
+
+  .btn-icon {
+    height: 25px;
+  }
+
+  &.xp {
+    .tooltip-popper {
+      left: auto;
+      right: -10px;
+    }
+  }
+
+  &.t--detect {
+    .icon-comm.i--tooltip {
+      background-image: url(../image/icon/ic_tooltip_warn.svg);
+    }
+  }
+
+  &.p--bottom .tooltip-popper {
+    top: 50%;
+    bottom: auto;
+  }
+
+  &.p--left .tooltip-popper {
+    top: 50%;
+    bottom: auto;
+    left: auto;
+    right: 30px !important;
+    transform: translateY(-50%);
+  }
+}
+
+.tooltip-popper {
+  z-index: 1;
+  position: absolute;
+  bottom: 100%;
+  left: -10px;
+  padding-top: 5px;
+}
+
+.tooltip-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: max-content;
+  min-width: 160px;
+  max-width: 320px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--c-border2);
+  background-color: #fff;
+  color: var(--c-black);
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0px 3px 12px 0px #00000012;
+
+  .tit {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1;
+
+    small {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+
+  .label {
+    font-weight: 500;
+    padding-right: 4px;
+  }
+
+  ul {
+    padding-left: 16px;
+  }
+
+  li {
+    padding: 3px 0 3px 0.7em;
+    text-indent: -0.7em;
+
+    &::before {
+      content: '• ';
+    }
+  }
+}
+
+.ellipsis-wrap {
+  position: relative;
+  text-align: left;
+  min-width: 0;
+
+  &.show-tooltip:hover .ellipsis::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ellipsis {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 130%;
+      left: 0;
+      background-color: #212126cc;
+      color: #fff;
+      line-height: 1.5;
+      padding: 0.5em 1em;
+      min-width: 120px;
+      border-radius: 6px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      width: max-content;
+      white-space: normal;
+      word-break: break-all;
+      max-width: var(--local-w, 100%);
+    }
+  }
+}

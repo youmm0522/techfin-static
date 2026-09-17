@@ -1,0 +1,137 @@
+.toast-root {
+  z-index: 1005;
+  position: fixed;
+  inset: auto 0 32px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 300;
+  white-space: nowrap;
+
+  &.t--floating {
+    inset: auto;
+    font-size: 13px;
+    font-weight: 400;
+    transform: translate(-50%, -110%);
+  }
+}
+
+.toast-root.t--floating .toast-box,
+.toast-box.b--light {
+  padding: 11px 16px 11px 20px;
+  border: 1px solid var(--c-border);
+  background-color: #fff;
+  color: var(--c-black);
+  font-weight: 500;
+  box-shadow: 0px 3px 12px 0px #00000012;
+
+  .toast-icon {
+    &::before {
+      box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
+      opacity: 0.6;
+    }
+  }
+}
+
+.toast-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 48px;
+  padding: 11px 16px;
+  margin: 0 auto;
+  background-color: #212126;
+  border-radius: 8px;
+  color: #fff;
+  word-break: keep-all;
+  animation: toastIn 0.8s 0.2s var(--ease) both;
+
+  &.c--error {
+    background-color: #ffeded;
+    color: var(--fc-default);
+
+    .toast-icon::before {
+      content: '!';
+      background: #fc5356;
+      color: #fff;
+    }
+  }
+
+  & > a,
+  & > .btn-text {
+    color: inherit;
+  }
+
+  .count {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+
+    em {
+      color: var(--c-primary);
+    }
+  }
+}
+
+.toast-icon {
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff url(../image/icon/ic_info2.svg) no-repeat center center / 5px;
+    color: #283556;
+    margin-right: 10px;
+    font-size: 10px;
+  }
+}
+
+.toast-btns {
+  display: flex;
+  gap: 8px;
+
+  .btn-contained:not(.s--xs, .s--sm) {
+    min-width: 63px;
+  }
+}
+
+.toast-backdrop {
+  @include backdrop;
+  position: fixed;
+  inset: 0;
+}
+
+.toast-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-right: 48px
+}
+
+.toast-service {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 16px;
+  padding-left: 16px;
+  border-left: 1px solid var(--c-border2);
+  
+  .radiochk-root.t--btns.s--sm .radiochk-label {
+    min-width: 58px
+  }
+}

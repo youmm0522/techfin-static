@@ -1,0 +1,308 @@
+.dashboard-network {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+
+  .dashboard-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+.chart-donut-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart-donut-data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: auto;
+
+  .value {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .legend-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    .icon-legend {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}
+
+.chart-donut {
+  position: relative;
+  width: 120px;
+  height: 120px;
+
+  .donut-svg {
+    transform: rotate(-90deg);
+  }
+
+  .donut-track {
+    fill: transparent;
+    stroke-width: 26px;
+    stroke: #d4d4d9;
+  }
+
+  .donut-segment {
+    z-index: 1;
+    fill: transparent;
+    stroke-width: 26px;
+    stroke: #d4d4d9;
+    stroke-dasharray: 289.02;
+    stroke-dashoffset: 289.02;
+    transition: stroke-dashoffset 0.5s ease;
+    transform-origin: center;
+
+    &:nth-child(1 of .donut-segment) {
+      stroke-dashoffset: calc(289.02 - 289.02 * (var(--val01) / 100));
+      transform: rotate(0deg);
+    }
+
+    &:nth-child(2 of .donut-segment) {
+      stroke-dashoffset: calc(289.02 - 289.02 * (var(--val02) / 100));
+      transform: rotate(calc(var(--val01) * 3.6deg));
+    }
+  }
+}
+
+.chart-network-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 40px;
+}
+
+.chart-network-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-network-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  counter-reset: index;
+
+  & > li {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: var(--c-bg);
+  }
+
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .icons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--c-gray1);
+
+    em {
+      font-size: 16px;
+      color: var(--c-black) !important;
+    }
+  }
+
+  .company {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--c-gray3);
+    font-size: 14px;
+    font-weight: 500;
+
+    &::before {
+      content: counter(index);
+      counter-increment: index;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: var(--c-gray1);
+      color: #fff;
+    }
+  }
+
+  .progress-wrap {
+    color: var(--c-primary);
+  }
+}
+
+.legend-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--c-gray1);
+  font-weight: 500;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 1px;
+  }
+
+  .icon-legend {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d4d4d9;
+  }
+}
+
+/////////////////////////////// progressbar
+.progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  color: var(--c-primary);
+
+  &.t--rows {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    .progressbar {
+      flex-grow: 1;
+    }
+  }
+
+  .label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--c-black);
+
+    em {
+      color: var(--c-primary);
+    }
+  }
+
+  .tit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .icon-comm {
+      width: 40px;
+      background-color: #fff;
+      border: 1px solid var(--c-border2);
+      border-radius: 8px;
+    }
+  }
+
+  .empty {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    font-weight: 700;
+    color: var(--c-gray1);
+  }
+
+  .progressbar {
+    height: 10px;
+    border-radius: 10px;
+    background-color: #d4d4d9;
+
+    .value {
+      height: 100%;
+      border-radius: 10px;
+      background-color: currentColor;
+    }
+  }
+}
+
+.table-datagrid .progressbar {
+  height: 8px;
+}
+
+/////////////////////////// legend
+.progress-wrap {
+  &.legend-01 {
+    color: #17bbd3 !important;
+    .label em {
+      color: #17bbd3 !important;
+    }
+  }
+  &.legend-02 {
+    color: #6249da !important;
+    .label em {
+      color: #6249da !important;
+    }
+  }
+  &.legend-03 {
+    .progressbar {
+      background-color: #e8e8eb;
+      .value {
+        background: linear-gradient(90.26deg, #3b5dfb 0.23%, #7d98ff 113.21%);
+      }
+    }
+  }
+  &.legend-04 {
+    color: #6249da !important;
+    .label em {
+      color: #6249da !important;
+    }
+    .progressbar {
+      background-color: #e8e8eb;
+      .value {
+        background: linear-gradient(90.26deg, #8980ff 0.23%, #aba8ff 113.21%);
+      }
+    }
+  }
+  &.legend-05 {
+    color: #17bbd3 !important;
+    .label em {
+      color: #17bbd3 !important;
+    }
+    .progressbar {
+      background-color: #e8e8eb;
+      .value {
+        background: linear-gradient(90.27deg, #17bbd3 0.24%, #5fcddd 108.42%);
+      }
+    }
+  }
+}
+
+.legend-list .icon-legend {
+  &.legend-01 {
+    background-color: #17bbd3 !important;
+  }
+  &.legend-02 {
+    background-color: #6249da !important;
+  }
+}
+
+.donut-segment {
+  &.legend-01 {
+    stroke: #17bbd3 !important;
+  }
+  &.legend-02 {
+    stroke: #6249da !important;
+  }
+}

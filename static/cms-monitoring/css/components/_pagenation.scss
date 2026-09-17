@@ -1,0 +1,29 @@
+.pagenation-root {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 28px 0
+}
+
+.pagenation-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  color: var(--c-gray2);
+  font-size: 16px;
+  font-weight: 500;
+  transition: .2s;
+
+  &.ac--active {
+    border-color: transparent;
+    background-color: var(--c-primary);
+    color: #fff;
+  }
+  
+  &:disabled {
+    opacity: .4
+  }
+}

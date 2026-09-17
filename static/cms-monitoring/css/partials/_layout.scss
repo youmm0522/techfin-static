@@ -1,0 +1,55 @@
+// body {overflow-y: scroll}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  // overflow: hidden;
+}
+
+.console-root {
+  flex: 1 0 auto;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  // min-width: 1900px;
+  color: var(--c-black);
+}
+
+.console-container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.console-contents {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  // overflow: auto;
+  // min-width: 1600px
+}
+
+.console-contents-inner {
+  @include width;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.console-contents-header {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 20px;
+
+  .cont-headline-box {
+    margin: 0;
+  }
+}
